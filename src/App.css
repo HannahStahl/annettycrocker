@@ -6,18 +6,38 @@
   color: #ff0066;
 }
 
-.App-header {
+.App-button {
   display: inline-block;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: #ff0066;
+  border-color: #ff0066;
+  border-radius: 10px;
+  font-size: 30px;
 }
 
-.App-emoji {
-  max-height: 40px;
+.App-button:hover {
+  color: #ff0066;
+  border-color: #ff0066;
+  background-color: #f9e0ea;
 }
 
-.App-emoji-span {
-  vertical-align: middle;
+.App-button:active {
+  color: #ff0066 !important;
+  border-color: #ff0066 !important;
+  background-color: #ffd3e4 !important;  
+}
+
+.App-button:visited {
+  color: #ff0066 !important;
+  border-color: #ff0066 !important;
+  background-color: #f9e0ea !important;    
+}
+
+.App-photo {
+  margin: 10px;
+  height: 300px;
+  border-radius: 10px;
 }
