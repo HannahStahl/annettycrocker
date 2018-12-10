@@ -30,6 +30,7 @@
   transform: translate(-50%, -50%);
   color: black;
   border-color: black;
+  border-radius: 0;
   font-size: 25px;
   font-weight: 600;
   background-color: rgba(255,235,235,0.7);
