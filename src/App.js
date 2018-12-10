@@ -9,7 +9,8 @@ class App extends Component {
       get: 'user',
       userId: '9436320028',
       accessToken: '9436320028.d6b2746.de3414163bb3419dac64d022bd252833',
-      template: '<img src="{{image}}" class="App-photo" />'
+      template: '<img src="{{image}}" class="App-photo" />',
+      resolution: 'standard_resolution'
     });
     feed.run();
     return (
