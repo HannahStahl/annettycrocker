@@ -16,7 +16,9 @@ class App extends Component {
     return (
       <div className="App">
         <div id="instafeed" />
-        <Button className="App-button">Request custom order!</Button>
+        <div className="App-button-container">
+          <Button className="App-button">Request custom order!</Button>
+        </div>
       </div>
     );
   }
