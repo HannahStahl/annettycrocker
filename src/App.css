@@ -3,13 +3,117 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   font-size: 40px;
-  color: #ff0066;
-  background-color: rgb(255,235,235);
   background: linear-gradient(to right, rgba(255,235,235,0.3), rgba(255,235,235,1), rgba(255,235,235,0.3));
   padding: 10px;
 }
 
-.App-button-container {
+.App-modal {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  border: solid 1px black;
+}
+
+.modal-content {
+  padding: 30px;
+  background-color: rgb(255, 235, 235);
+}
+
+.App-form {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.App-modal p {
+  font-size: 24px;
+}
+
+.App-modal div {
+  border-radius: 0;
+}
+
+.App-modal-footer {
+  text-align: center;
+  border-top: none;
+}
+
+.App-form-field {
+  border-radius: 0;
+}
+
+.App-form-field:focus {
+  outline: none;
+  box-shadow: none;
+  border: solid 1px black;
+}
+
+.App-short-field {
+  max-width: 300px;
+}
+
+.App-button {
+  border-radius: 0;
+}
+
+.App-cancel-button {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.App-send-button {
+  margin-left: 10px;
+  background-color: white;
+  border-color: #2e6da4;
+  color: #2e6da4;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.App-cancel-button:hover {
+  background-color: rgb(238, 232, 232);
+}
+
+.App-send-button:hover {
+  background-color: rgb(238, 232, 232);
+  border-color: #337ab7;
+  color: #337ab7;
+}
+
+.App-cancel-button:active {
+  outline: none;
+  box-shadow: none;  
+}
+
+.App-send-button:active {
+  outline: none;
+  box-shadow: none;
+  background-color: rgb(238, 232, 232) !important;
+  border-color: #337ab7 !important;
+  color: #337ab7 !important;
+}
+
+.App-cancel-button:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.App-send-button:focus {
+  outline: none !important;
+  box-shadow: none;  
+  background-color: rgb(223, 215, 215) !important;
+  border-color: #337ab7 !important;
+  color: #337ab7 !important;
+}
+
+.App-message {
+  height: 200px !important;
+}
+
+.App-order-button-container {
   display: inline-block;
   position: fixed;
   top: 50%;
@@ -22,7 +126,7 @@
   box-shadow: 0 0 30px 30px rgba(255,235,235,0.5);
 }
 
-.App-button {
+.App-order-button {
   display: inline-block;
   position: fixed;
   top: 50%;
@@ -30,7 +134,6 @@
   transform: translate(-50%, -50%);
   color: black;
   border-color: black;
-  border-radius: 0;
   font-size: 30px;
   background-color: rgba(255,235,235,0.7);
   transition: all .2s;
@@ -40,14 +143,14 @@
   box-shadow: 0 0 10px 10px rgba(255,235,235,0.45);
 }
 
-.App-button:focus {
+.App-order-button:focus {
   color: black !important;
   border-color: black !important;
   background-color: rgba(255,235,235,0.7) !important;
   outline: none !important;
 }
 
-.App-button:hover {
+.App-order-button:hover {
   color: black;
   border-color: black;
   background-color: rgba(225,200,200,0.8);
@@ -55,7 +158,7 @@
   margin-top: -5px;
 }
 
-.App-button:active {
+.App-order-button:active {
   color: black !important;
   border-color: black !important;
   background-color: rgba(200,175,175,0.8) !important;
@@ -76,7 +179,7 @@
     width: 45%;
   }
 
-  .App-button {
+  .App-order-button {
     font-size: 20px;
   }
 }
