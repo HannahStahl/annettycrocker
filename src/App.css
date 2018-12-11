@@ -15,16 +15,35 @@
 }
 
 .modal-content {
-  padding: 30px;
+  padding-top: 0px;
   background-color: rgb(255, 235, 235);
+}
+
+.modal-body {
+  padding: 30px;
+  padding-top: 0px;
 }
 
 .App-form {
   margin-top: 30px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 0px;
   font-size: 16px;
   font-weight: 300;
+}
+
+.close {
+  padding-right: 0px;
+}
+
+.close:hover {
+  color: black !important;
+}
+
+.close:focus {
+  outline: none;
+  text-shadow: none;
 }
 
 .App-modal p {
@@ -35,13 +54,24 @@
   border-radius: 0;
 }
 
+.App-modal-header {
+  border-bottom: none;
+}
+
 .App-modal-footer {
   text-align: center;
   border-top: none;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+
+label {
+  padding-right: 0px !important;
 }
 
 .App-form-field {
   border-radius: 0;
+  color: black;
 }
 
 .App-form-field:focus {

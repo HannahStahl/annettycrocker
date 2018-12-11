@@ -38,6 +38,7 @@ class App extends Component {
       <div className="App">
         <div id="instafeed" />
         <Modal className="App-modal" show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header className="App-modal-header" closeButton />
           <Modal.Body>
             <p>I would love to bake for you! Please include the details of what you are looking for below. I will get back to you shortly to discuss!</p>
             <Form horizontal className="App-form">
