@@ -3,7 +3,7 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   font-size: 40px;
-  background: linear-gradient(to right, rgba(255,235,235,0.3), rgba(255,235,235,1), rgba(255,235,235,0.3));
+  background: linear-gradient(to right, rgba(255,235,235,1), rgba(255,235,235,0.3), rgba(255,235,235,1));
   padding: 10px;
 }
 
@@ -200,6 +200,7 @@ label {
   margin: 1%;
   height: 25%;
   width: 25%;
+  max-width: 300px;
   border: solid 1px black;
 }
 
