@@ -3,21 +3,226 @@
   font-family: 'Quicksand', sans-serif;
   font-weight: 300;
   font-size: 40px;
-  color: #ff0066;
+  background: linear-gradient(to right, rgba(255,235,235,1), rgba(255,235,235,0.3), rgba(255,235,235,1));
+  padding: 10px;
 }
 
-.App-header {
+.App-modal {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  border: solid 1px black;
+}
+
+.modal-content {
+  padding-top: 0px;
+  background-color: rgb(255, 235, 235);
+}
+
+.modal-body {
+  padding: 30px;
+  padding-top: 0px;
+}
+
+.App-form {
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.close {
+  padding-right: 0px;
+}
+
+.close:hover {
+  color: black !important;
+}
+
+.close:focus {
+  outline: none;
+  text-shadow: none;
+}
+
+.App-modal p {
+  font-size: 24px;
+}
+
+.App-modal div {
+  border-radius: 0;
+}
+
+.App-modal-header {
+  border-bottom: none;
+}
+
+.App-modal-footer {
+  text-align: center;
+  border-top: none;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+
+label {
+  padding-right: 0px !important;
+}
+
+.App-form-field {
+  border-radius: 0;
+  color: black;
+}
+
+.App-form-field:focus {
+  outline: none;
+  box-shadow: none;
+  border: solid 1px black;
+}
+
+.App-short-field {
+  max-width: 300px;
+}
+
+.App-button {
+  border-radius: 0;
+}
+
+.App-cancel-button {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.App-send-button {
+  margin-left: 10px;
+  background-color: white;
+  border-color: #2e6da4;
+  color: #2e6da4;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.App-cancel-button:hover {
+  background-color: rgb(238, 232, 232);
+}
+
+.App-send-button:hover {
+  background-color: rgb(238, 232, 232);
+  border-color: #337ab7;
+  color: #337ab7;
+}
+
+.App-cancel-button:active {
+  outline: none;
+  box-shadow: none;  
+}
+
+.App-send-button:active {
+  outline: none;
+  box-shadow: none;
+  background-color: rgb(238, 232, 232) !important;
+  border-color: #337ab7 !important;
+  color: #337ab7 !important;
+}
+
+.App-cancel-button:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+.App-send-button:focus {
+  outline: none !important;
+  box-shadow: none;  
+  background-color: rgb(223, 215, 215) !important;
+  border-color: #337ab7 !important;
+  color: #337ab7 !important;
+}
+
+.App-message {
+  height: 200px !important;
+  max-width: 384px !important;
+}
+
+.App-order-button-container {
   display: inline-block;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(255,235,235,0.55);
+  height: 75px;
+  width: 350px;
+  border-radius: 30px;
+  box-shadow: 0 0 30px 30px rgba(255,235,235,0.5);
 }
 
-.App-emoji {
-  max-height: 40px;
+.App-order-button {
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  border-color: black;
+  font-size: 30px;
+  background-color: rgba(255,235,235,0.7);
+  transition: all .2s;
+  -o-transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  box-shadow: 0 0 10px 10px rgba(255,235,235,0.45);
 }
 
-.App-emoji-span {
-  vertical-align: middle;
+.App-order-button:focus {
+  color: black !important;
+  border-color: black !important;
+  background-color: rgba(255,235,235,0.7) !important;
+  outline: none !important;
+}
+
+.App-order-button:hover {
+  color: black;
+  border-color: black;
+  background-color: rgba(225,200,200,0.8);
+  border: solid 2px black;
+  margin-top: -5px;
+}
+
+.App-order-button:active {
+  color: black !important;
+  border-color: black !important;
+  background-color: rgba(200,175,175,0.8) !important;
+  outline: none !important;
+  box-shadow: 0 0 10px 10px rgba(255,235,235,0.45) !important;
+}
+
+.App-photo {
+  margin: 1%;
+  height: 25%;
+  width: 25%;
+  max-width: 300px;
+  border: solid 1px black;
+}
+
+@media only screen and (max-width: 600px) {
+  .App-photo {
+    height: 45%;
+    width: 45%;
+  }
+
+  .App-order-button {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  label {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+#instafeed {
+  opacity: 0.6;
 }
