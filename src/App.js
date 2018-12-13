@@ -48,7 +48,8 @@ class App extends Component {
       message: '',
       showErrorOnName: false,
       showErrorOnEmail: false,
-      showErrorOnMessage: false     
+      showErrorOnMessage: false,
+      emailAttemptComplete: false  
     });
   }
 
