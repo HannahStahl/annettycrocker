@@ -98,62 +98,62 @@ class App extends Component {
       <div className="App">
         <div className="gallery">
           <img
-            src={require("./images/annette1.jpg")}
+            src={require("./images/image1.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette2.jpg")}
+            src={require("./images/image2.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette3.jpg")}
+            src={require("./images/image3.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette4.jpg")}
+            src={require("./images/image4.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette5.jpg")}
+            src={require("./images/image5.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette6.jpg")}
+            src={require("./images/image6.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette7.jpg")}
+            src={require("./images/image7.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette8.jpg")}
+            src={require("./images/image8.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette9.jpg")}
+            src={require("./images/image9.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette10.jpg")}
+            src={require("./images/image10.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette11.jpg")}
+            src={require("./images/image11.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />
           <img
-            src={require("./images/annette12.jpg")}
+            src={require("./images/image12.jpg")}
             alt="Annetty Crocker"
             className="App-photo"
           />

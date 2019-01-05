@@ -199,16 +199,16 @@ label {
 
 .App-photo {
   margin: 1%;
-  height: 25%;
-  width: 25%;
-  max-width: 300px;
+  height: 300px;
+  width: 300px;
   border: solid 1px black;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 600px) {
   .App-photo {
-    height: 45%;
-    width: 45%;
+    height: 150px;
+    width: 150px;
   }
 
   .App-order-button {
