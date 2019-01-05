@@ -1,18 +1,8 @@
 import React, { Component } from 'react';
 import { Col, Button, Modal, ControlLabel, Form, FormGroup, FormControl } from 'react-bootstrap';
-import Instafeed from 'instafeed.js';
 import './App.css';
 
 var validator = require('validator');
-
-var feed = new Instafeed({
-  get: 'user',
-  userId: '9436320028',
-  accessToken: '9436320028.d6b2746.de3414163bb3419dac64d022bd252833',
-  template: '<img src="{{image}}" alt="Annetty Crocker" class="App-photo" />',
-  resolution: 'standard_resolution'
-});
-feed.run();
 
 const sendEmailURL = "https://snzk8dcwt2.execute-api.us-east-1.amazonaws.com/dev/email/send";
 
@@ -106,7 +96,68 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div id="instafeed" />
+        <div className="gallery">
+          <img
+            src={require("./images/annette1.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette2.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette3.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette4.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette5.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette6.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette7.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette8.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette9.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette10.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette11.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+          <img
+            src={require("./images/annette12.jpg")}
+            alt="Annetty Crocker"
+            className="App-photo"
+          />
+        </div>
         <Modal className="App-modal" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header className="App-modal-header" closeButton />
           {!this.state.emailAttemptComplete && <div>
