@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Button, Modal, ControlLabel, Form, FormGroup, FormControl } from 'react-bootstrap';
 import './App.css';
+import config from './config';
 
 var validator = require('validator');
 
@@ -13,6 +14,7 @@ class App extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getPhotos = this.getPhotos.bind(this);
     this.state = {
       show: false,
       name: '',
@@ -22,7 +24,9 @@ class App extends Component {
       showErrorOnEmail: false,
       showErrorOnMessage: false,
       emailAttemptComplete: false,
-      emailAttemptResponse: ''
+      emailAttemptResponse: '',
+      loadingPhotos: true,
+      photos: []
     };
   }
 
@@ -93,70 +97,38 @@ class App extends Component {
     }
   }
 
+  getPhotos() {
+    var req = new XMLHttpRequest();
+    req.open("GET", config.photosURL+config.username, true);
+    req.onreadystatechange = function() {
+      if (req.readyState === 4 && req.status === 200) {
+        this.setState({
+          loadingPhotos: false,
+          photos: JSON.parse(req.responseText)
+        });
+      }
+    }.bind(this);
+    req.send();
+  }
+
+  componentWillMount() {
+    this.getPhotos();
+  }
+
   render() {
-    return (
+    return (!this.state.loadingPhotos &&
       <div className="App">
         <div className="gallery">
-          <img
-            src={require("./images/image1.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image2.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image3.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image4.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image5.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image6.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image7.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image8.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image9.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image10.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image11.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
-          <img
-            src={require("./images/image12.jpg")}
-            alt="Annetty Crocker"
-            className="App-photo"
-          />
+          {this.state.photos.map(function(photo) {
+            return (
+              <img
+                key={photo.photoId}
+                src={config.cloudFrontURL + photo.image}
+                alt="Img"
+                className="App-photo"
+              />
+            );
+          })}
         </div>
         <Modal className="App-modal" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header className="App-modal-header" closeButton />
