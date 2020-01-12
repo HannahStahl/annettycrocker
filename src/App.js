@@ -5,7 +5,7 @@ import config from './config';
 
 var validator = require('validator');
 
-const sendEmailURL = "https://snzk8dcwt2.execute-api.us-east-1.amazonaws.com/dev/email/send";
+const sendEmailURL = "https://2w75n274dh.execute-api.us-east-1.amazonaws.com/prod/email/send";
 
 class App extends Component {
   constructor(props, context) {
