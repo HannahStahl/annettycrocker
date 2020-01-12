@@ -23,8 +23,7 @@ class App extends Component {
       showErrorOnName: false,
       showErrorOnEmail: false,
       showErrorOnMessage: false,
-      emailAttemptComplete: false,
-      emailAttemptResponse: '',
+      contactFormHeader: 'I would love to bake for you! Please include the details of what you are looking for below. I will get back to you shortly to discuss!',
       loadingPhotos: true,
       photos: []
     };
@@ -42,8 +41,7 @@ class App extends Component {
       message: '',
       showErrorOnName: false,
       showErrorOnEmail: false,
-      showErrorOnMessage: false,
-      emailAttemptComplete: false  
+      showErrorOnMessage: false, 
     });
   }
 
@@ -70,14 +68,14 @@ class App extends Component {
       this.state.showErrorOnMessage
     );
     if (allFieldsValid) {
-      var req = new XMLHttpRequest();
-      req.open("POST", sendEmailURL, true);
-      req.setRequestHeader("Content-Type", "application/json");
-      req.addEventListener("load", function () {
-        var emailAttemptResponse = 'Sent!';
-        if (req.status >= 400) {
-          emailAttemptResponse = 'Oops! Something went wrong. Please try emailing me at annettycrocker@gmail.com.';
-        }
+      fetch(sendEmailURL, {
+        method: 'post',
+        body: JSON.stringify({
+          name: this.state.name,
+          email: this.state.email,
+          content: this.state.message
+        }),
+      }).then(() => {
         this.setState({
           name: '',
           email: '',
@@ -85,15 +83,14 @@ class App extends Component {
           showErrorOnName: false,
           showErrorOnEmail: false,
           showErrorOnMessage: false,
-          emailAttemptComplete: true,
-          emailAttemptResponse
+          contactFormHeader: 'Sent!',
         });
-      }.bind(this));
-      req.send(JSON.stringify({
-        name: this.state.name,
-        email: this.state.email,
-        content: this.state.message
-      }));
+      }).catch((error) => {
+        console.log(error);
+        this.setState({
+          contactFormHeader: 'Oops! Something went wrong. Please email me at annettycrocker@gmail.com.',
+        });
+      });
     }
   }
 
@@ -132,9 +129,9 @@ class App extends Component {
         </div>
         <Modal className="App-modal" show={this.state.show} onHide={this.handleClose}>
           <Modal.Header className="App-modal-header" closeButton />
-          {!this.state.emailAttemptComplete && <div>
+          <div>
             <Modal.Body>
-              <p>I would love to bake for you! Please include the details of what you are looking for below. I will get back to you shortly to discuss!</p>
+              <p>{this.state.contactFormHeader}</p>
               <Form horizontal className="App-form">
                 <FormGroup validationState={this.state.showErrorOnName ? 'error' : null}>
                   <Col componentClass={ControlLabel} sm={2}>Name:</Col>
@@ -178,12 +175,7 @@ class App extends Component {
               <Button className="App-button App-cancel-button" onClick={this.handleClose}>Cancel</Button>
               <Button className="App-button App-send-button" type="submit" bsStyle="primary" onClick={this.handleSubmit}>Send</Button>
             </Modal.Footer>
-          </div>}
-          {this.state.emailAttemptComplete && <div>
-            <Modal.Body>
-              <p>{this.state.emailAttemptResponse}</p>
-            </Modal.Body>
-          </div>}
+          </div>
         </Modal>
         <div className="App-order-button-container">
           <Button className="App-button App-order-button" onClick={this.handleShow}>Request custom order!</Button>
