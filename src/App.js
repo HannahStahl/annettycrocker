@@ -77,9 +77,6 @@ class App extends Component {
         }),
       }).then(() => {
         this.setState({
-          name: '',
-          email: '',
-          message: '',
           showErrorOnName: false,
           showErrorOnEmail: false,
           showErrorOnMessage: false,
@@ -88,6 +85,9 @@ class App extends Component {
       }).catch((error) => {
         console.log(error);
         this.setState({
+          showErrorOnName: false,
+          showErrorOnEmail: false,
+          showErrorOnMessage: false,
           contactFormHeader: 'Oops! Something went wrong. Please email me at annettycrocker@gmail.com.',
         });
       });
