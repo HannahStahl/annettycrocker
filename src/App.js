@@ -132,49 +132,53 @@ class App extends Component {
           <div>
             <Modal.Body>
               <p>{this.state.contactFormHeader}</p>
-              <Form horizontal className="App-form">
-                <FormGroup validationState={this.state.showErrorOnName ? 'error' : null}>
-                  <Col componentClass={ControlLabel} sm={2}>Name:</Col>
-                  <Col sm={10}>
-                    <FormControl
-                      className="App-form-field App-short-field"
-                      type="text"
-                      name="name"
-                      value={this.state.name}
-                      onChange={this.handleChange}
-                    />
-                  </Col>
-                </FormGroup>
-                <FormGroup validationState={this.state.showErrorOnEmail ? 'error' : null}>
-                  <Col componentClass={ControlLabel} sm={2}>Email:</Col>
-                  <Col sm={10}>
-                    <FormControl
-                      className="App-form-field App-short-field"
-                      type="email"
-                      name="email"
-                      value={this.state.email}
-                      onChange={this.handleChange}
-                    />
+              {this.state.contactFormHeader !== 'Sent!' && (
+                <Form horizontal className="App-form">
+                  <FormGroup validationState={this.state.showErrorOnName ? 'error' : null}>
+                    <Col componentClass={ControlLabel} sm={2}>Name:</Col>
+                    <Col sm={10}>
+                      <FormControl
+                        className="App-form-field App-short-field"
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                      />
                     </Col>
-                </FormGroup>
-                <FormGroup validationState={this.state.showErrorOnMessage ? 'error' : null}>
-                  <Col componentClass={ControlLabel} sm={2}>Message:</Col>
-                  <Col sm={10}>
-                    <FormControl
-                      className="App-form-field App-message"
-                      componentClass="textarea"
-                      name="message"
-                      value={this.state.message}
-                      onChange={this.handleChange}
-                    />
-                  </Col>
-                </FormGroup>
-              </Form>
+                  </FormGroup>
+                  <FormGroup validationState={this.state.showErrorOnEmail ? 'error' : null}>
+                    <Col componentClass={ControlLabel} sm={2}>Email:</Col>
+                    <Col sm={10}>
+                      <FormControl
+                        className="App-form-field App-short-field"
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                      />
+                      </Col>
+                  </FormGroup>
+                  <FormGroup validationState={this.state.showErrorOnMessage ? 'error' : null}>
+                    <Col componentClass={ControlLabel} sm={2}>Message:</Col>
+                    <Col sm={10}>
+                      <FormControl
+                        className="App-form-field App-message"
+                        componentClass="textarea"
+                        name="message"
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                      />
+                    </Col>
+                  </FormGroup>
+                </Form>
+              )}
             </Modal.Body>
-            <Modal.Footer className='App-modal-footer'>
-              <Button className="App-button App-cancel-button" onClick={this.handleClose}>Cancel</Button>
-              <Button className="App-button App-send-button" type="submit" bsStyle="primary" onClick={this.handleSubmit}>Send</Button>
-            </Modal.Footer>
+            {this.state.contactFormHeader !== 'Sent!' && (
+              <Modal.Footer className='App-modal-footer'>
+                <Button className="App-button App-cancel-button" onClick={this.handleClose}>Cancel</Button>
+                <Button className="App-button App-send-button" type="submit" bsStyle="primary" onClick={this.handleSubmit}>Send</Button>
+              </Modal.Footer>
+            )}
           </div>
         </Modal>
         <div className="App-order-button-container">
