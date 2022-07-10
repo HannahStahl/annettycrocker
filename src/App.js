@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Col, Button, Modal, ControlLabel, Form, FormGroup, FormControl } from 'react-bootstrap';
 import './App.css';
-import config from './config';
 
 var validator = require('validator');
 
 const sendEmailURL = "https://2w75n274dh.execute-api.us-east-1.amazonaws.com/prod/email/send";
+const sanityURL = "https://ss5scuni.apicdn.sanity.io/v1/graphql/production/default";
 
 class App extends Component {
   constructor(props, context) {
@@ -95,17 +95,31 @@ class App extends Component {
   }
 
   getPhotos() {
-    var req = new XMLHttpRequest();
-    req.open("GET", config.photosURL+config.username, true);
-    req.onreadystatechange = function() {
-      if (req.readyState === 4 && req.status === 200) {
+    fetch(sanityURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `
+          query {
+            allGallery {
+              photos {
+                _key
+                asset {
+                  url
+                }
+              }
+            }
+          }
+        `,
+      }),
+    })
+      .then((res) => res.json())
+      .then(({ data: { allGallery } }) => {
         this.setState({
           loadingPhotos: false,
-          photos: JSON.parse(req.responseText)
+          photos: allGallery[0].photos,
         });
-      }
-    }.bind(this);
-    req.send();
+      });
   }
 
   componentWillMount() {
@@ -119,8 +133,8 @@ class App extends Component {
           {this.state.photos.map(function(photo) {
             return (
               <img
-                key={photo.photoId}
-                src={config.cloudFrontURL + photo.image}
+                key={photo._key}
+                src={photo.asset.url}
                 alt="Img"
                 className="App-photo"
               />
