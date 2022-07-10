@@ -4,7 +4,7 @@ import './App.css';
 
 var validator = require('validator');
 
-const sendEmailURL = "https://2w75n274dh.execute-api.us-east-1.amazonaws.com/prod/email/send";
+const sendEmailURL = "https://aiikn63n03.execute-api.us-east-1.amazonaws.com/prod/email/send";
 const sanityURL = "https://ss5scuni.apicdn.sanity.io/v1/graphql/production/default";
 
 class App extends Component {
@@ -69,27 +69,31 @@ class App extends Component {
     );
     if (allFieldsValid) {
       fetch(sendEmailURL, {
-        method: 'post',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: this.state.name,
-          email: this.state.email,
-          content: this.state.message
+          message: this.state.message,
+          userEmail: this.state.email,
+          clientEmail: 'annettycrocker@gmail.com',
+          siteDomain: window.location.origin,
         }),
-      }).then(() => {
-        this.setState({
-          showErrorOnName: false,
-          showErrorOnEmail: false,
-          showErrorOnMessage: false,
-          contactFormHeader: 'Sent!',
-        });
-      }).catch((error) => {
-        console.log(error);
-        this.setState({
-          showErrorOnName: false,
-          showErrorOnEmail: false,
-          showErrorOnMessage: false,
-          contactFormHeader: 'Oops! Something went wrong. Please email me at annettycrocker@gmail.com.',
-        });
+      }).then((response) => response.json()).then((json) => {
+        if (json.MessageId) {
+          this.setState({
+            showErrorOnName: false,
+            showErrorOnEmail: false,
+            showErrorOnMessage: false,
+            contactFormHeader: 'Sent!',
+          });
+        } else {
+          this.setState({
+            showErrorOnName: false,
+            showErrorOnEmail: false,
+            showErrorOnMessage: false,
+            contactFormHeader: 'Oops! Something went wrong. Please email me at annettycrocker@gmail.com.',
+          });
+        }
       });
     }
   }
